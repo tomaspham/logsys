@@ -51,7 +51,7 @@ def top_articles():
     generate_title("Top 3 articles")
 
     for title, num in articles:
-        print(" \"{}\" -- {} views".format(title, num))
+        print(f" \"{title}\" -- {num} views")
 
 
 # Generate top authors
@@ -60,7 +60,7 @@ def top_authors():
     generate_title("Top authors")
 
     for name, num in authors:
-        print(" {} -- {} views".format(name, num))
+        print(f" {name} -- {num} views")
 
 
 # Generate days with more than 1% bad requests
