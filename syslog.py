@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.6
 
 import psycopg2
 
@@ -13,8 +13,8 @@ top_articles_sql = """
                      """
 
 # 2. Who are the most popular article authors of all time?
-top_authors_sql = """ SELECT authors.name, COUNT(*) AS counter 
-                FROM articles, authors, log 
+top_authors_sql = """ SELECT authors.name, COUNT(*) AS counter
+                FROM articles, authors, log
                 WHERE log.status='200 OK'
                 AND authors.id = articles.author
                 AND articles.slug = SUBSTR(log.path, 10)
@@ -69,7 +69,7 @@ def error_days():
     generate_title("Days with more than one percentage of bad requests")
 
     for day, percentage_fail in error_days:
-        print("""{0:%B %d, %Y} -- {1:.2f} % errors""".format(day, percentage_fail))
+        print(f"""{day:%B %d, %Y} -- {percentage_fail:.2f} % errors""")
 
 
 if __name__ == '__main__':
